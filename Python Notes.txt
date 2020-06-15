@@ -1,0 +1,83 @@
+Python Notes.
+
+i- Continue Statement:
+Continue statement will let the loop continue iteration and at the same time the iteration where continue is true that iteration will be skipped !!
+
+ii- For Loop with an else statement:
+The else statement is written at the end of for loop.
+The else statement will only be executed if the complete for loop is executed. otherwise it will not be executed.
+
+iii- Docstrings:
+Tripple double quote convention. """docstrings come here."""
+Used for documentation inside the code.
+called by functiona_name.__doc__
+
+def func():
+    """This is docstring"""
+    pass
+
+
+print(func.__doc__)
+
+iv- Arbitrary parameters/unknown number of parameters:
+Used when we don't know the number of arguments to be passed to a function.
+Named/defined with an asterisk "*args"
+Example:
+
+def argsmethod(*args):
+    for i in args:
+        if type(i) == int:
+            print("Okay")
+
+argsmethod("Safiullah Khan", "King Khan", 12, 14, "Okay")
+
+v- Keyword Arguments Functions.
+Similar to Arbitrary arguments.
+Conventions use is double asterisk "**kwargs"
+Example:
+
+def kargsmethod(**kwargs):
+    for key in kwargs.keys():
+        print(key, ":", kwargs[key])
+
+kargsmethod(name = "Safiullah", sinf = "FSC", school = "SST")
+
+vi- Lambda Function:
+Called only once.
+Also known as annonymous function.
+Example:
+
+function1 = lambda i : i*i
+
+print(function1(7))
+
+vii- Global / nonlocal
+Scope of variables.
+
+viii- Alias to a function or refering another object to a function.
+another_function = origninal_function
+print(another_function()) -> executes the original_function()
+
+ix- Higher order function
+def square(num):
+    return num * num
+
+
+def higher_function(x, function):
+    return function(x)
+
+
+print(higher_function(6, square))
+
+In Higher order functions we can also return a function from within a function be it a lambda or a named function.
+
+def square(n):
+    if n == 'even':
+        return lambda num: num / 2
+    elif n == 'odd':
+        return lambda num: num * num
+
+
+f1 = square('even')
+print(f1(8))
+
