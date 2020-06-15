@@ -20,8 +20,8 @@ def find_d(e, phi_n):
 		if e*i % phi_n == 1:
 			d = i
 	return d
-	
-	
+
+
 def listtostring(l):
     string = ""
     for i in l:
@@ -30,18 +30,15 @@ def listtostring(l):
     return string
 
 
-# p = int(input("Enter Value of P"))
-# q = int(input("Enter Value of Q"))
+p = int(input("Enter Value of P"))
+q = int(input("Enter Value of Q"))
 
-p = 53
-q = 47
 n = p*q
 phi_n = (p-1)*(q-1)
 e = find_e(phi_n)
 d = find_d(e, phi_n)
 
-# message = input("Insert message")
-message = "freelance"
+message = input("Insert message")
 
 # Encryption
 # 1 Break message into characters
@@ -60,17 +57,21 @@ for i in message_asci:
     epower = pow(i, e)
     cipher = epower % n
     cipher_asci.append(cipher)
-   
+
 # 4 Convert Ascii values of Cipher to characters
 for i in cipher_asci:
     characters = chr(i)
     cipher_list.append(characters)
-    
+
 # print(cipher_list)
 
 # 5 Convert List to String
 cipher_text = listtostring(cipher_list)
-print(cipher_text)
+print("value of n = " + str(n))
+print("Value of phi_n = " + str(phi_n))
+print("Value of e = " + str(e))
+print("value of d = " + str(d))
+print("Cipher Text: " + str(cipher_text))
 
 # Decryption
 dec_msg_asci = []
@@ -78,30 +79,17 @@ dec_characters = []
 
 # 1. Operations on already present list
 for i in cipher_asci:
-    
+
     dpower = pow(i, d)
     msg_asci = dpower % n
     dec_msg_asci.append(msg_asci)
-    
+
 # 2. Converting Ascii values to characters.
 for i in dec_msg_asci:
     dec_chars = chr(i)
     dec_characters.append(dec_chars)
-    
+
 # 3. List to String Conversion.
 dec_message = listtostring(dec_characters)
-print(dec_message)
+print("Decrypted Text: " + str(dec_message))
 
-# m = 7
-# epower = pow(m, e)
-# cipher = epower % n
-# dpower = pow(cipher, d)
-# message = dpower % n
-
-# print("value of n = " + str(n))
-# print("Value of phi_n = " + str(phi_n))
-# print("Value of e = " + str(e))
-# print("value of d = " + str(d))
-# print("value of m = " + str(m) + "\n")
-# print("Cipher text = " + str(cipher) + "\n")
-# print("value of m = " + str(message) + "\n")
